@@ -22,9 +22,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.yellow,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Filip Djordjic'),
     );
   }
 }
@@ -50,7 +50,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  void _incrementCounter2() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -58,6 +58,18 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter+=2;
+    });
+  }
+
+  void _incrementCounter1() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  void _incrementCounter3() {
+    setState(() {
+      _counter+=3;
     });
   }
 
@@ -74,11 +86,17 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        toolbarHeight: 40,
+        centerTitle: true,
+
       ),
       body: Center(
+
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Column(
+        child:
+
+        Column(
           // Column is also a layout widget. It takes a list of children and
           // arranges them vertically. By default, it sizes itself to fit its
           // children horizontally, and tries to be as tall as its parent.
@@ -94,22 +112,112 @@ class _MyHomePageState extends State<MyHomePage> {
           // axis because Columns are vertical (the cross axis would be
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+          children: <Widget> [
+            Stack(
+              children: <Widget>[
+                // Stroked text as border.
+                Text(
+                  'Stisnuli ste dugme',
+                  style: TextStyle(
+                    fontSize: 40,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 6
+                      ..color = Colors.blue[700]!,
+
+                  ),
+                ),
+                // Solid text as fill.
+                Text(
+                  'Stisnuli ste dugme',
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.grey[300],
+                  ),
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            Stack(
+              children: <Widget>[
+                // Stroked text as border.
+                Text(
+                  '$_counter',
+                  style: TextStyle(
+                    fontSize: 40,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 6
+                      ..color = Colors.blue[700]!,
+                  ),
+                ),
+                // Solid text as fill.
+                Text(
+                  '$_counter',
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.grey[300],
+                  ),
+                ),
+              ],
+            ),
+            Stack(
+              children: <Widget>[
+                // Stroked text as border.
+                Text(
+                  'puta!',
+                  style: TextStyle(
+                    fontSize: 40,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 6
+                      ..color = Colors.blue[700]!,
+                  ),
+                ),
+                // Solid text as fill.
+                Text(
+                  'puta!',
+                  style: TextStyle(
+                    fontSize: 40,
+                    color: Colors.grey[300],
+                  ),
+                ),
+              ],
+            ),
+            Text(''),
+            Text(''),
+            Text(''),
+            FlatButton(
+              onPressed: _incrementCounter1,
+              child: Text('+1'),
+              color: Colors.blue,
+              textColor: Colors.yellow,
+            ),
+            Text(''),
+            FlatButton(
+              onPressed: _incrementCounter2,
+              child: Text('+2'),
+              color: Colors.blue,
+              textColor: Colors.yellow,
+            ),
+            Text(''),
+            FlatButton(
+              onPressed: _incrementCounter3,
+              child: Text('+3'),
+              color: Colors.blue,
+              textColor: Colors.yellow,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: _incrementCounter2,
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        child: const Icon(Icons.add_circle),
+        backgroundColor: Colors.blue,
+        foregroundColor: Colors.yellow,
+      ),
+      backgroundColor: Colors.yellow,// This trailing comma makes auto-formatting nicer for build methods.
     );
+
   }
 }
