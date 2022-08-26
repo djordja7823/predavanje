@@ -208,7 +208,7 @@ class _MyHomePageState extends State<MyHomePage> {
       RaisedButton(
         elevation: 20,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        onPressed: _incrementCounter2,
+        onPressed: _incrementCounter1,
         hoverColor: Colors.grey,
         padding: EdgeInsets.all(0),
         child: Container(
@@ -254,7 +254,7 @@ class _MyHomePageState extends State<MyHomePage> {
             RaisedButton(
               elevation: 20,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-              onPressed: _incrementCounter2,
+              onPressed: _incrementCounter3,
               hoverColor: Colors.grey,
               padding: EdgeInsets.all(0),
               child: Container(
