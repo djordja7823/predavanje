@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         // "hot reload" (press "r" in the console where you ran "flutter run",
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+        // is not restarted.\
         primarySwatch: Colors.yellow,
       ),
       home: const MyHomePage(title: 'Filip Djordjic'),
@@ -73,6 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -86,10 +89,22 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        titleTextStyle: TextStyle(color: Colors.white, fontSize: 20,),
         toolbarHeight: 40,
         centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: <Color> [
+              Colors.purple,
+              Colors.blue,
+            ]
+          )
+          ),
+        ),
 
-      ),
+        )
+      ,
       body: Center(
 
         // Center is a layout widget. It takes a single child and positions it
@@ -120,6 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   'Stisnuli ste dugme',
                   style: TextStyle(
                     fontSize: 40,
+                    letterSpacing: 3.5,
                     foreground: Paint()
                       ..style = PaintingStyle.stroke
                       ..strokeWidth = 6
@@ -133,6 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(
                     fontSize: 40,
                     color: Colors.grey[300],
+                    letterSpacing: 3.5,
                   ),
                 ),
               ],
@@ -167,6 +184,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   'puta!',
                   style: TextStyle(
                     fontSize: 40,
+                    letterSpacing: 2.0,
                     foreground: Paint()
                       ..style = PaintingStyle.stroke
                       ..strokeWidth = 6
@@ -179,6 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: TextStyle(
                     fontSize: 40,
                     color: Colors.grey[300],
+                    letterSpacing: 2.0,
                   ),
                 ),
               ],
@@ -186,25 +205,72 @@ class _MyHomePageState extends State<MyHomePage> {
             Text(''),
             Text(''),
             Text(''),
-            FlatButton(
-              onPressed: _incrementCounter1,
-              child: Text('+1'),
-              color: Colors.blue,
-              textColor: Colors.yellow,
-            ),
+      RaisedButton(
+        elevation: 20,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        onPressed: _incrementCounter2,
+        hoverColor: Colors.grey,
+        padding: EdgeInsets.all(0),
+        child: Container(
+            padding: EdgeInsets.symmetric(vertical: 15, horizontal: 35),
+            child: Text('+1'),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  colors: <Color> [
+                    Colors.blue,
+                    Colors.purple,
+                  ]
+              ),
+              border: Border.all(width: 4,color: Colors.black),
+              borderRadius: BorderRadius.circular(20),
+            )
+        ),
+      ),
             Text(''),
-            FlatButton(
+      RaisedButton(
+        elevation: 20,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        onPressed: _incrementCounter2,
+        hoverColor: Colors.grey,
+        padding: EdgeInsets.all(0),
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 15, horizontal: 35),
+                child: Text('+2'),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: <Color> [
+                      Colors.blue,
+                      Colors.purple,
+                    ]
+                  ),
+                    border: Border.all(width: 4,color: Colors.black),
+                    borderRadius: BorderRadius.circular(20),
+                  )
+                ),
+              ),
+
+      //padding: EdgeInsets.symmetric(vertical: 25, horizontal: 20),),
+            Text(''),
+            RaisedButton(
+              elevation: 20,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               onPressed: _incrementCounter2,
-              child: Text('+2'),
-              color: Colors.blue,
-              textColor: Colors.yellow,
-            ),
-            Text(''),
-            FlatButton(
-              onPressed: _incrementCounter3,
-              child: Text('+3'),
-              color: Colors.blue,
-              textColor: Colors.yellow,
+              hoverColor: Colors.grey,
+              padding: EdgeInsets.all(0),
+              child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 35),
+                  child: Text('+3'),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        colors: <Color> [
+                          Colors.blue,
+                          Colors.purple,
+                        ]
+                    ),
+                    border: Border.all(width: 4,color: Colors.black),
+                    borderRadius: BorderRadius.circular(20),
+                  )
+              ),
             ),
           ],
         ),
@@ -212,9 +278,23 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter2,
         tooltip: 'Increment',
-        child: const Icon(Icons.add_circle),
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.yellow,
+        hoverElevation: 20,
+        shape: CircleBorder(side: BorderSide(width: 0)),
+        child: Container(
+          child: const Icon(Icons.add_circle),
+          padding: EdgeInsets.all(15),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: <Color> [
+                Colors.blue,
+                Colors.purple,
+              ]
+            ),
+              borderRadius: BorderRadius.circular(200),
+              border: Border.all(width: 1),
+
+          ),
+        )
       ),
       backgroundColor: Colors.yellow,// This trailing comma makes auto-formatting nicer for build methods.
     );
