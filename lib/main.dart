@@ -296,6 +296,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         )
       ),
+
       backgroundColor: Colors.white,// This trailing comma makes auto-formatting nicer for build methods.
     );
 
