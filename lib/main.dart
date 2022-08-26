@@ -148,8 +148,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   'Stisnuli ste dugme',
                   style: TextStyle(
                     fontSize: 40,
-                    color: Colors.grey[300],
                     letterSpacing: 3.5,
+                    color: Colors.grey[300],
                   ),
                 ),
               ],
